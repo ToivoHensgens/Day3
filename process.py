@@ -7,7 +7,6 @@ def extract_totalentries(url):
 	d = feedparser.parse(url)
 	return len(d["entries"])
 
-
 def extract_abstract(url, entry_number):
 	"""This function extract the entry_number-th abstract of the search query contained in the url
 
