@@ -12,7 +12,7 @@ query is the search term and can be multiple words.
 '''
 import time
 
-def create(method='search_query', kind1='all', kind2='bla', query1='akhmerov sticlet', query2='electron photon',start='0', number='10', beginning='2001-01-01', end=time.strftime('%Y-%m-%d')):    
+def create(method='search_query', kind1='all', kind2='bla', query1='akhmerov sticlet', query2='electron photon',start='0', number='100', beginning='2001-01-01', end=time.strftime('%Y-%m-%d')):    
     if kind2=='bla':
         url='http://export.arxiv.org/api/query?'+ method +'='+ kind1 +':'+ query1.replace(' ','+AND+'+kind1+':') +'+AND+'+'submittedDate:['+ beginning.replace('-','') +'0000+TO+'+ end.replace('-','') +'0000]' +'&start='+ start +'&max_results='+ number
     else:
