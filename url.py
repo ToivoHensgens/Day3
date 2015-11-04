@@ -2,11 +2,19 @@
 Input
 =====
 Can only be a string!
-kind can be 'all' for all
-            'au' for authors
-            'abs' for abstracts
-
+kind1/2 can be 'all' for all
+                'ti' for title
+                'au' for authors
+                'abs' for abstracts
+start defines what is the index of the first result.
+number defines the number of results obtained starting from the start index.
+query is the search term and can be multiple words.
 '''
-def create(method='search_query', kind='all', query='electron photon', start='0', number='10'):    
-    url='http://export.arxiv.org/api/query?'+ method +'='+ kind +':'+ query.replace(' ','+AND+'+kind+':') +'&start='+ start +'&max_results='+ number
+import time
+
+def create(method='search_query', kind1='all', kind2='bla', query1='akhmerov sticlet', query2='electron photon',start='0', number='10', beginning='2001-01-01', end=time.strftime('%Y-%m-%d')):    
+    if kind2=='bla':
+        url='http://export.arxiv.org/api/query?'+ method +'='+ kind1 +':'+ query1.replace(' ','+AND+'+kind1+':') +'+AND+'+'submittedDate:['+ beginning.replace('-','') +'0000+TO+'+ end.replace('-','') +'0000]' +'&start='+ start +'&max_results='+ number
+    else:
+        url='http://export.arxiv.org/api/query?'+ method +'='+ kind1 +':'+ query1.replace(' ','+AND+'+kind1+':') +'+AND+'+kind2+':'+ query2.replace(' ','+AND+'+kind2+':') +'+AND+'+'submittedDate:['+ beginning.replace('-','') +'0000+TO+'+ end.replace('-','') +'0000]' +'&start='+ start +'&max_results='+ number
     return(url)
