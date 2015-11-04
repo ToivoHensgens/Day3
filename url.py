@@ -9,11 +9,6 @@ kind can be 'all' for all
 '''
 
 
-def create(method='search_query', kind='all', query='electron', start='0', number='10'):
-   ''' if query.find(' ')==-1:
-        break
-    else:
-        '''
-    
-    url='http://export.arxiv.org/api/query?'+ method +'='+ kind +':'+ query1 +'&start='+ start +'&max_results='+ number
+def create(method='search_query', kind='all', query='electron', start='0', number='10'):    
+    url='http://export.arxiv.org/api/query?'+ method +'='+ kind +':'+ query +'&start='+ start +'&max_results='+ number
     return(url)
