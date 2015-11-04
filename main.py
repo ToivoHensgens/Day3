@@ -8,7 +8,9 @@ print("Once upon a time")
 # Next import all the relevant stuffs
 import searchdef
 import resultsdef
-#import URL
+import url
+#import process
+import urllib
 #import ProcessWebPage
 #import ProcessOutputData
 print(" ")
@@ -27,16 +29,16 @@ print("such as the following:")
 print("Author: " + SEARCH.get_author())
 
 # Call Lucas's superduper URL create script
-#searchURL = URL.create(kind='author',query=SEARCH.get_author())
+searchURL = url.create()#kind='author',query=SEARCH.get_author())
 print(" ")
 print("creating this superduper URL:")
-#print(searchURL)
+print(searchURL)
 
 # that allows us to overload the ArXiv server with our queries!
-#searchPAGE = ProcessWebPage.loadpage(searchURL)
+PAGE = urllib.urlopen(searchURL).read()
 print(" ")
 print("that we look up")
 #ProcessWebPage.PROCESSTHETHINGALREADY() #Which puts all the things in the results script
 print(" ")
 print("and we process the hell out of!")
-print("Hello back")
+print(" ")
